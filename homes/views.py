@@ -1,6 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from homes.models import Home
 
-def qwerty(request):
-    return render(request, '123.html')
+
+def list_views(request):
+
+    homes = Home.objects.all()
+
+    return render(request, 'index.html', {'homes': homes})
